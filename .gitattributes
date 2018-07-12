@@ -1,1 +1,2 @@
 #pattern  filter=crypt diff=crypt
+basebot/src/basebot/tokens.py  filter=crypt diff=crypt

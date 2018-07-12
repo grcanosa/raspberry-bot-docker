@@ -1,6 +1,11 @@
 version: '3'
 services: 
+  basebot:
+    build: basebot/
+    image: basebot:latest
   grcanosabot:
     build: grcanosabot/
     restart: always
+    depends_on:
+      - basebot
     

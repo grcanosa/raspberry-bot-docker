@@ -9,3 +9,6 @@ services:
     depends_on:
       - basebot
     network_mode: host
+    container_name: grcanosabot
+    volumes:
+      - "./grcanosabot/src/grcanosabot/:/code/grcanosabot"

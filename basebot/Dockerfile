@@ -13,3 +13,4 @@ RUN pip3 install -r requirements.txt
 COPY /src/ /code/
 
 WORKDIR /code
+ENV PYTHONPATH "${PYTONPATH}:/code/"

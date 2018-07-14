@@ -9,7 +9,13 @@ from basebot.basebot import BaseBot
 from basebot.handlers.piropos import PiropoList
 from basebot.users.userregistry import UserRegistry
 
+from grcanosabot.sarapiropos import SaraPiropoList
+
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.DEBUG)
+
 logger = logging.getLogger(__name__)
+
 
 
 
@@ -33,9 +39,9 @@ class GrcanosaBot(BaseBot):
         #             filename=self._datafolder+"/cats",
         #             updater=self._updater,userR=self._userR,priority=50)
 
-        # SaraPiropoList(cmdget="dimealgorealmentebonito",cmdadd="addpiroposara",
-        #             filename=self._datafolder+"/grcanosabot/sarapiropos.txt",
-        #             updater=self._updater,userR=self._userR,priority=50)
+        SaraPiropoList(cmdget="dimealgorealmentebonito",cmdadd="addpiroposara",
+                    filename=os.path.join(self._datafolder,"sarapiropos.txt"),
+                    updater=self._updater,userR=self._userR,priority=50)
 
         # RandomEmoji(cmdget="randomemoji",cmdadd="addemoji",
         #             filename=self._datafolder+"/emojis.txt",

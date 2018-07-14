@@ -19,3 +19,5 @@ services:
       - basebot
     container_name: renfebot
     network_mode: host
+    volumes:
+      - "./renfebot/shared/:/mnt/shared/"

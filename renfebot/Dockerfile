@@ -14,4 +14,4 @@ RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckod
 COPY src/ /code/
 WORKDIR /code/
 
-CMD ["python3","main.py"]
+CMD ["python3","renfebot/renfebot.py"]

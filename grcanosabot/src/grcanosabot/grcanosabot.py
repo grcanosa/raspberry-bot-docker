@@ -63,7 +63,7 @@ class GrcanosaBot(BaseBot):
     def send_morning(self,bot,job):
         phrase = self._motivacion.get_random_phrase()
         bot.send_message(chat_id=CID_GRCANOSA,text=phrase)
-        self._updater.bot.send_message(chat_id=CID_SARA,text=phrase)
+        bot.send_message(chat_id=CID_SARA,text=phrase)
 
 
     def get_help(self):

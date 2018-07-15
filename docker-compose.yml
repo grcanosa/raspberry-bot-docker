@@ -12,12 +12,12 @@ services:
     container_name: grcanosabot
     volumes:
       - "./grcanosabot/src/grcanosabot/:/code/grcanosabot"
-  # renfebot:
-  #   build: renfebot/
-  #   restart: always
-  #   depends_on:
-  #     - basebot
-  #   container_name: renfebot
-  #   network_mode: host
-  #   volumes:
-  #     - "./renfebot/shared/:/mnt/shared/"
+  renfebot:
+    build: renfebot/
+    restart: always
+    depends_on:
+      - basebot
+    container_name: renfebot
+    network_mode: host
+    volumes:
+      - "./renfebot/shared/:/mnt/shared/"

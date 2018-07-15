@@ -2,10 +2,11 @@
 
 import os
 import logging
-
-from basebot.tokens import TOKEN_GRCANOSABOT,CID_GRCANOSA
+import datetime
+from basebot.tokens import TOKEN_GRCANOSABOT,CID_GRCANOSA,CID_SARA
 from basebot.basebot import BaseBot
-
+from basebot.handlers.fixedresponse import FixedResponse
+from basebot.handlers.phraselist import PhraseList
 from basebot.handlers.piropos import PiropoList
 from basebot.users.userregistry import UserRegistry
 
@@ -43,19 +44,33 @@ class GrcanosaBot(BaseBot):
                     filename=os.path.join(self._datafolder,"sarapiropos.txt"),
                     updater=self._updater,userR=self._userR,priority=50)
 
+        self._motivacion = PhraseList(cmdget="",cmdadd="",filename=os.path.join(self._datafolder,"frasesmotivadoras.txt"),
+                    updater=None,userR=None,phrasetype="message")
+
+
+        self._updater.job_queue.run_daily(self.send_morning,
+                                        time=datetime.time(9,0),
+                                        days=(0,1,2,3,4,5,6),
+                                        name="morning0900")
         # RandomEmoji(cmdget="randomemoji",cmdadd="addemoji",
         #             filename=self._datafolder+"/emojis.txt",
         #             updater=self._updater,userR=self._userR,priority=50)
 
-        # FixedResponse(cmd="help",response=self.get_help(),
-        #                 updater=self._updater,userR=self._userR,priority=50)
+        FixedResponse(cmd="help",response=self.get_help(),
+                        updater=self._updater,userR=self._userR,priority=50)
 
+
+    def send_morning(self,bot,job):
+        phrase = self._motivacion.get_random_phrase()
+        bot.send_message(chat_id=CID_GRCANOSA,text=phrase)
+        self._updater.bot.send_message(chat_id=CID_SARA,text=phrase)
 
 
     def get_help(self):
         text = "Soy grcanosabot, y esto es lo que puedo hacer: \n"
         text += "/help - Muestra esta ayuda. \n"
-        text += "/dimealgobonito - Pide un piropo, o si añades Nombre Apellidos manda un piropo a otra persona. \n"
+        text += "/dimealgobonito - Pide un piropo \n"
+        text += "/dimealgorealmentebonito - ¿? \n"
         # text += "/addpiropo - Añade un piropo a la lista escribiendo el piropo después del comando.\n"
         # text += "/randomemoji - Pide un emoji aleatorio \n"
         # #text += "/addemoji EMOJI A AÑADIR -  Añade un emoji a la lista \n"

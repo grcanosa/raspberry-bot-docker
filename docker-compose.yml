@@ -11,8 +11,7 @@ services:
     network_mode: host
     container_name: grcanosabot
     volumes:
-      - "./grcanosabot/src/grcanosabot/:/code/grcanosabot"
-      - "./grcanosabot/shared/:/mnt/shared/"
+      - "./shared/:/mnt/shared/"
   renfebot:
     build: renfebot/
     restart: always
@@ -21,4 +20,4 @@ services:
     container_name: renfebot
     network_mode: host
     volumes:
-      - "./renfebot/shared/:/mnt/shared/"
+      - "./shared/:/mnt/shared/"

@@ -1,10 +1,10 @@
 version: '3'
 services: 
   basebot:
-    build: basebot/
+    build: ./servicios/basebot/
     image: basebot:latest
   grcanosabot:
-    build: grcanosabot/
+    build: ./servicios/grcanosabot/
     restart: always
     depends_on:
       - basebot
@@ -13,7 +13,7 @@ services:
     volumes:
       - "./shared/:/mnt/shared/"
   renfebot:
-    build: renfebot/
+    build: ./servicios/renfebot/
     restart: always
     depends_on:
       - basebot

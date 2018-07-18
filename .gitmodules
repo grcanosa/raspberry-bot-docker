@@ -1,3 +1,0 @@
-[submodule "renfebot/src/renfe-notifier-bot"]
-	path = renfebot/src/renfe-notifier-bot
-	url = https://github.com/grcanosa/renfe-notifier-bot.git

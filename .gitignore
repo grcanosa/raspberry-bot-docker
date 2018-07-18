@@ -2,6 +2,9 @@
 
 # Created by https://www.gitignore.io/api/linux,visualstudiocode,python
 
+#SHARED DIR
+shared/*
+
 ### Linux ###
 *~
 

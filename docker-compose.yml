@@ -12,6 +12,7 @@ services:
     container_name: grcanosabot
     volumes:
       - "./grcanosabot/src/grcanosabot/:/code/grcanosabot"
+      - "./grcanosabot/shared/:/mnt/shared/"
   renfebot:
     build: renfebot/
     restart: always

@@ -81,6 +81,6 @@ class GrcanosaBot(BaseBot):
 
 
 def main(*args, **kw):
-    n = GrcanosaBot("","/data/")
+    n = GrcanosaBot("/mnt/shared/","/data/")
     n.start()
     n.idle()
